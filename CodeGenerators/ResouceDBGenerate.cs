@@ -5,8 +5,8 @@ using System.IO;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering.LightweightPipeline;
 using UnityEngine.Rendering;
-using UnityEngine.Rendering.LWRP;
 
 public class ResouceDBGenerate : MonoBehaviour
 {

@@ -6,7 +6,7 @@ using UnityEngine;
 // ПРИ ИЗМЕНЕНИИ НАБОРА СТЕЙТОВ ОБЯЗАТЕЛЬНО ПРОВЕРИТЬ ВСЕ КОМПОНЕНТЫ В КОТОРЫХ ЕСТЬ КОНТЕЙНЕРЫ СТЕЙТОВ, НАПРИМЕР, GameStateObjectsController
 public enum GameStates
 {
-    MainMenu,
+    Tutorial,
     Play,
     LevelSuccess,
     LevelFailed,
