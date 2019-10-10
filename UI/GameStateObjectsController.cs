@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameStateObjectsController : MonoBehaviour
 {
     [SerializeField] private string Description;
-    [SerializeField] private GameStateChangeEvent gameStates;
+    private GameStateChangeEvent gameStates;
     [SerializeField] private List<GameStates> gameStatesTrigger;
     [SerializeField] private List<GameObject> gameObjectActiveList;
     [SerializeField] private List<GameObject> gameObjectEnableList;
@@ -18,6 +18,7 @@ public class GameStateObjectsController : MonoBehaviour
 
     void OnEnable()
     {
+		gameStates = GameStateChangeEvent.Import();
         gameStates.AddHandler(OnGameStateChange);
         OnGameStateChange();
     }
