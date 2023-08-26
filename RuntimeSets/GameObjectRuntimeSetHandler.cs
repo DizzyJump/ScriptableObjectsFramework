@@ -1,20 +1,21 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class GameObjectRuntimeSetHandler : MonoBehaviour
+namespace Demos.SOArchApproach.CodeBase.ScriptableObjectsFramework.RuntimeSets
 {
-    [SerializeField] private GameObjectsRuntimeSet[] sets;
-
-    void OnEnable()
+    public class GameObjectRuntimeSetHandler : MonoBehaviour
     {
-        for(int i=0; i<sets.Length; i++)
-            sets[i].Add(gameObject);
-    }
+        [SerializeField] private GameObjectsRuntimeSet[] sets;
 
-    void OnDisable()
-    {
-        for(int i = 0; i < sets.Length; i++)
-            sets[i].Remove(gameObject);
+        void OnEnable()
+        {
+            for(int i=0; i<sets.Length; i++)
+                sets[i].Add(gameObject);
+        }
+
+        void OnDisable()
+        {
+            for(int i = 0; i < sets.Length; i++)
+                sets[i].Remove(gameObject);
+        }
     }
 }

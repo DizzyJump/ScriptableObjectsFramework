@@ -1,16 +1,17 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class HotkeyManagerIdle : MonoBehaviour {
-    public HotkeysManager manager;
-	// Use this for initialization
-	void Start () {
+namespace Demos.SOArchApproach.CodeBase.ScriptableObjectsFramework.HotkeysTracker
+{
+	public class HotkeyManagerIdle : MonoBehaviour {
+		public HotkeysManager manager;
+		// Use this for initialization
+		void Start () {
 		
-	}
+		}
 	
-	// Update is called once per frame
-	void Update () {
-        manager.Idle();
+		// Update is called once per frame
+		void Update () {
+			manager.Idle();
+		}
 	}
 }

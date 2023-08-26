@@ -1,22 +1,23 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class SetGameState : MonoBehaviour
+namespace Demos.SOArchApproach.CodeBase.ScriptableObjectsFramework.Events
 {
-    private GameStateChangeEvent gameState;
-
-    [SerializeField] private GameStates targetState;
-
-    // Start is called before the first frame update
-    void Start()
+    public class SetGameState : MonoBehaviour
     {
-        gameState = GameStateChangeEvent.Import();
+        private GameStateChangeEvent gameState;
+
+        [SerializeField] private GameStates targetState;
+
+        // Start is called before the first frame update
+        void Start()
+        {
+            gameState = GameStateChangeEvent.Import();
         
-    }
+        }
 
-    public void SwitchState()
-    {
-        gameState.Value = targetState;
+        public void SwitchState()
+        {
+            gameState.Value = targetState;
+        }
     }
 }

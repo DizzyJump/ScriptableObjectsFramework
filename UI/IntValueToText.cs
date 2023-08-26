@@ -1,12 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using Demos.SOArchApproach.CodeBase.ScriptableObjectsFramework.Values;
 
-public class IntValueToText : ValueToTextBase {
-    public IntValue Value;
+namespace Demos.SOArchApproach.CodeBase.ScriptableObjectsFramework.UI
+{
+    public class IntValueToText : ValueToTextBase {
+        public IntValue Value;
 
-    protected override string _GetValueString()
-    {
-        return Value.Value.ToString();
+        protected override string _GetValueString()
+        {
+            return Value.Value.ToString();
+        }
     }
 }

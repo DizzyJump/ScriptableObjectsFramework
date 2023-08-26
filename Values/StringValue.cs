@@ -1,6 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-[CreateAssetMenu(menuName ="Values/String")]
-public class StringValue : BaseValue<string> {
+﻿using UnityEngine;
+
+namespace Demos.SOArchApproach.CodeBase.ScriptableObjectsFramework.Values
+{
+    [CreateAssetMenu(menuName ="Values/String")]
+    public class StringValue : BaseValue<string> {
+    }
 }

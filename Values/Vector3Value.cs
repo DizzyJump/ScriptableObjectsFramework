@@ -1,7 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-[CreateAssetMenu(menuName = "Values/Vector3")]
-public class Vector3Value : BaseValue<Vector3> {
+namespace Demos.SOArchApproach.CodeBase.ScriptableObjectsFramework.Values
+{
+    [CreateAssetMenu(menuName = "Values/Vector3")]
+    public class Vector3Value : BaseValue<Vector3> {
+    }
 }

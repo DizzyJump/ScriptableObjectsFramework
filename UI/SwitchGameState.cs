@@ -1,16 +1,18 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Demos.SOArchApproach.CodeBase.ScriptableObjectsFramework.Events;
 using UnityEngine;
 
-public class SwitchGameState : MonoBehaviour
+namespace Demos.SOArchApproach.CodeBase.ScriptableObjectsFramework.UI
 {
-    private GameStateChangeEvent gameState;
-    [SerializeField] private GameStates targetState;
-
-    public void Switch()
+    public class SwitchGameState : MonoBehaviour
     {
-        if(gameState==null)
-            gameState = GameStateChangeEvent.Import();
-        gameState.Value = targetState;
+        private GameStateChangeEvent gameState;
+        [SerializeField] private GameStates targetState;
+
+        public void Switch()
+        {
+            if(gameState==null)
+                gameState = GameStateChangeEvent.Import();
+            gameState.Value = targetState;
+        }
     }
 }

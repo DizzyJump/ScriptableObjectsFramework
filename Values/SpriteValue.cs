@@ -1,8 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-[CreateAssetMenu(menuName = "Values/Sprite")]
-public class SpriteValue : BaseValue<Sprite> {
+namespace Demos.SOArchApproach.CodeBase.ScriptableObjectsFramework.Values
+{
+    [CreateAssetMenu(menuName = "Values/Sprite")]
+    public class SpriteValue : BaseValue<Sprite> {
 
+    }
 }

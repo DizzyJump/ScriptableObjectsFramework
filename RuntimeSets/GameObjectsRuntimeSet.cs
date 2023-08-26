@@ -1,8 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-[CreateAssetMenu(menuName = "RuntimeSets/GameObjectsRuntimeSet")]
-public class GameObjectsRuntimeSet : RuntimeSet<GameObject>
+namespace Demos.SOArchApproach.CodeBase.ScriptableObjectsFramework.RuntimeSets
 {
+    [CreateAssetMenu(menuName = "RuntimeSets/GameObjectsRuntimeSet")]
+    public class GameObjectsRuntimeSet : RuntimeSet<GameObject>
+    {
+    }
 }

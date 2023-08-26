@@ -1,43 +1,45 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Demos.SOArchApproach.CodeBase.ScriptableObjectsFramework.Events;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-public class BaseValue<T> : EventObject {
-    [SerializeField]
-    [OnValueChanged("Invoke")]
-    private T value;
+namespace Demos.SOArchApproach.CodeBase.ScriptableObjectsFramework.Values
+{
+    public class BaseValue<T> : EventObject {
+        [SerializeField]
+        [OnValueChanged("Invoke")]
+        private T value;
 
-    [SerializeField]
-    private bool DropOnEnable = false;
+        [SerializeField]
+        private bool DropOnEnable = false;
 
-    [EnableIf("DropOnEnable")]
-    [SerializeField]
-    private T DefaultValue;
+        [EnableIf("DropOnEnable")]
+        [SerializeField]
+        private T DefaultValue;
 
-    public T Value
-    {
-        get
+        public T Value
         {
-            return value;
+            get
+            {
+                return value;
+            }
+
+            set
+            {
+                this.value = value;
+                Invoke();
+            }
         }
 
-        set
+        private void OnEnable()
         {
-            this.value = value;
-            Invoke();
+            if(DropOnEnable)
+                value = DefaultValue;
         }
-    }
 
-    private void OnEnable()
-    {
-        if(DropOnEnable)
-            value = DefaultValue;
-    }
-
-    [Button]
-    void SetValue(T val)
-    {
-        Value = val;
+        [Button]
+        void SetValue(T val)
+        {
+            Value = val;
+        }
     }
 }

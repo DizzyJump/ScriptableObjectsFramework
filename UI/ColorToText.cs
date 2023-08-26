@@ -1,33 +1,35 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Demos.SOArchApproach.CodeBase.ScriptableObjectsFramework.Values;
 using TMPro;
 using UnityEngine;
 
-public class ColorToText : MonoBehaviour
+namespace Demos.SOArchApproach.CodeBase.ScriptableObjectsFramework.UI
 {
-    TextMeshProUGUI text;
-    public ColorValue Color;
-
-    private void OnEnable()
+    public class ColorToText : MonoBehaviour
     {
-        if(text == null)
-            text = GetComponent<TextMeshProUGUI>();
-        if(Color != null)
+        TextMeshProUGUI text;
+        public ColorValue Color;
+
+        private void OnEnable()
         {
-            Color.AddHandler(OnChangeValue);
+            if(text == null)
+                text = GetComponent<TextMeshProUGUI>();
+            if(Color != null)
+            {
+                Color.AddHandler(OnChangeValue);
+            }
+            OnChangeValue();
         }
-        OnChangeValue();
-    }
 
-    private void OnDisable()
-    {
-        if(Color != null)
-            Color.RemoveHandler(OnChangeValue);
-    }
+        private void OnDisable()
+        {
+            if(Color != null)
+                Color.RemoveHandler(OnChangeValue);
+        }
 
-    void OnChangeValue()
-    {
-        if(text != null && Color != null)
-            text.color = Color.Value;
+        void OnChangeValue()
+        {
+            if(text != null && Color != null)
+                text.color = Color.Value;
+        }
     }
 }

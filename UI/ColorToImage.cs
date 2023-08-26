@@ -1,33 +1,35 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Demos.SOArchApproach.CodeBase.ScriptableObjectsFramework.Values;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ColorToImage : MonoBehaviour
+namespace Demos.SOArchApproach.CodeBase.ScriptableObjectsFramework.UI
 {
-    Image Sprite;
-    public ColorValue Color;
-
-    private void OnEnable()
+    public class ColorToImage : MonoBehaviour
     {
-        if(Sprite == null)
-            Sprite = GetComponent<Image>();
-        if(Color != null)
+        Image Sprite;
+        public ColorValue Color;
+
+        private void OnEnable()
         {
-            Color.AddHandler(OnChangeValue);
+            if(Sprite == null)
+                Sprite = GetComponent<Image>();
+            if(Color != null)
+            {
+                Color.AddHandler(OnChangeValue);
+            }
+            OnChangeValue();
         }
-        OnChangeValue();
-    }
 
-    private void OnDisable()
-    {
-        if(Color != null)
-            Color.RemoveHandler(OnChangeValue);
-    }
+        private void OnDisable()
+        {
+            if(Color != null)
+                Color.RemoveHandler(OnChangeValue);
+        }
 
-    void OnChangeValue()
-    {
-        if(Sprite != null && Color != null)
-            Sprite.color = Color.Value;
+        void OnChangeValue()
+        {
+            if(Sprite != null && Color != null)
+                Sprite.color = Color.Value;
+        }
     }
 }

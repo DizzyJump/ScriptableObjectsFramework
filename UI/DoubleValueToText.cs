@@ -1,33 +1,34 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using Demos.SOArchApproach.CodeBase.ScriptableObjectsFramework.Values;
 
-public class DoubleValueToText : ValueToTextBase
+namespace Demos.SOArchApproach.CodeBase.ScriptableObjectsFramework.UI
 {
-    public enum RenderModes
+    public class DoubleValueToText : ValueToTextBase
     {
-        Normal,
-        ShortLeft,
-        ShortRight,
-        Short,
-    }
-    public DoubleValue Value;
-    public RenderModes Mode = RenderModes.Normal;
-    public ShortenConversionTool ShortenTool;
-
-    protected override string _GetValueString()
-    {
-        switch(Mode)
+        public enum RenderModes
         {
-            case RenderModes.ShortLeft:
-                return ShortenTool.GetLeft(Value.Value);
-            case RenderModes.ShortRight:
-                return ShortenTool.GetRight(Value.Value);
-            case RenderModes.Short:
-                return ShortenTool.GetShort(Value.Value);
-            case RenderModes.Normal:
-            default:
-                return Value.Value.ToString();
+            Normal,
+            ShortLeft,
+            ShortRight,
+            Short,
+        }
+        public DoubleValue Value;
+        public RenderModes Mode = RenderModes.Normal;
+        public ShortenConversionTool ShortenTool;
+
+        protected override string _GetValueString()
+        {
+            switch(Mode)
+            {
+                case RenderModes.ShortLeft:
+                    return ShortenTool.GetLeft(Value.Value);
+                case RenderModes.ShortRight:
+                    return ShortenTool.GetRight(Value.Value);
+                case RenderModes.Short:
+                    return ShortenTool.GetShort(Value.Value);
+                case RenderModes.Normal:
+                default:
+                    return Value.Value.ToString();
+            }
         }
     }
 }

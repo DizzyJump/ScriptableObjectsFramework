@@ -1,31 +1,33 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Demos.SOArchApproach.CodeBase.ScriptableObjectsFramework.Values;
 using UnityEngine;
 
-public abstract class BaseValueSaver<TYPE, HOLDER> : MonoBehaviour where HOLDER : BaseValue<TYPE>
+namespace Demos.SOArchApproach.CodeBase.ScriptableObjectsFramework
 {
-    public HOLDER Value;
-    public StringValue Key;
-    public bool LoadOnAwake;
-    public TYPE DefaultValue;
-
-    private void Awake()
+    public abstract class BaseValueSaver<TYPE, HOLDER> : MonoBehaviour where HOLDER : BaseValue<TYPE>
     {
-        if(LoadOnAwake)
+        public HOLDER Value;
+        public StringValue Key;
+        public bool LoadOnAwake;
+        public TYPE DefaultValue;
+
+        private void Awake()
         {
-            if(PlayerPrefs.HasKey(Key.Value))
-                Value.Value = LoadValue();
-            else
-                Value.Value = DefaultValue;
+            if(LoadOnAwake)
+            {
+                if(PlayerPrefs.HasKey(Key.Value))
+                    Value.Value = LoadValue();
+                else
+                    Value.Value = DefaultValue;
+            }
         }
-    }
 
-    public abstract TYPE LoadValue();
-    public abstract void SaveValue();
+        public abstract TYPE LoadValue();
+        public abstract void SaveValue();
 
-    public void OnUpdateValue()
-    {
-        SaveValue();
-        PlayerPrefs.Save();
+        public void OnUpdateValue()
+        {
+            SaveValue();
+            PlayerPrefs.Save();
+        }
     }
 }

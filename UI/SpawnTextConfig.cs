@@ -1,9 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-[CreateAssetMenu(menuName ="Game/Configs/Spawn Text")]
-public class SpawnTextConfig : ScriptableObject
+namespace Demos.SOArchApproach.CodeBase.ScriptableObjectsFramework.UI
 {
-    public SpawnedText TextPrefab;
+    [CreateAssetMenu(menuName ="Game/Configs/Spawn Text")]
+    public class SpawnTextConfig : ScriptableObject
+    {
+        public SpawnedText TextPrefab;
+    }
 }

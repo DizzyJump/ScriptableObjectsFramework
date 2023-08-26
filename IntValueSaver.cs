@@ -1,15 +1,17 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Demos.SOArchApproach.CodeBase.ScriptableObjectsFramework.Values;
 using UnityEngine;
 
-public class IntValueSaver : BaseValueSaver<int, IntValue> {
-    public override int LoadValue()
-    {
-        return PlayerPrefs.GetInt(Key.Value);
-    }
+namespace Demos.SOArchApproach.CodeBase.ScriptableObjectsFramework
+{
+    public class IntValueSaver : BaseValueSaver<int, IntValue> {
+        public override int LoadValue()
+        {
+            return PlayerPrefs.GetInt(Key.Value);
+        }
 
-    public override void SaveValue()
-    {
-        PlayerPrefs.SetInt(Key.Value, Value.Value);
+        public override void SaveValue()
+        {
+            PlayerPrefs.SetInt(Key.Value, Value.Value);
+        }
     }
 }

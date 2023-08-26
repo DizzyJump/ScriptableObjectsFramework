@@ -1,48 +1,48 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using Sirenix.OdinInspector;
+﻿using Sirenix.OdinInspector;
 using UnityEngine;
 
-public class ProgressBarFiller : MonoBehaviour
+namespace Demos.SOArchApproach.CodeBase.ScriptableObjectsFramework
 {
-    [SerializeField] private RectTransform.Axis movingAxis;
-
-    private float startSize;
-
-    private RectTransform tr;
-
-    private float currentValue;
-
-    private float targetValue;
-
-    [SerializeField] private float increaseSpeed;
-
-    [SerializeField] private float decreaseSpeed;
-
-    // Start is called before the first frame update
-    void Start()
+    public class ProgressBarFiller : MonoBehaviour
     {
-        tr = transform as RectTransform;
-        startSize = movingAxis == RectTransform.Axis.Horizontal ? tr.rect.width : tr.rect.height;
-        currentValue = 0;
-        targetValue = 0;
-    }
+        [SerializeField] private RectTransform.Axis movingAxis;
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (targetValue > currentValue)
-            currentValue = Mathf.MoveTowards(currentValue, targetValue, increaseSpeed * Time.deltaTime);
-        else
-            currentValue = Mathf.MoveTowards(currentValue, targetValue, decreaseSpeed * Time.deltaTime);
-        float newWidth = currentValue * startSize;
-        tr.SetSizeWithCurrentAnchors(movingAxis, newWidth);
-    }
+        private float startSize;
 
-    [Button]
-    public void SetTargetValue(float value)
-    {
-        targetValue = value;
+        private RectTransform tr;
+
+        private float currentValue;
+
+        private float targetValue;
+
+        [SerializeField] private float increaseSpeed;
+
+        [SerializeField] private float decreaseSpeed;
+
+        // Start is called before the first frame update
+        void Start()
+        {
+            tr = transform as RectTransform;
+            startSize = movingAxis == RectTransform.Axis.Horizontal ? tr.rect.width : tr.rect.height;
+            currentValue = 0;
+            targetValue = 0;
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+            if (targetValue > currentValue)
+                currentValue = Mathf.MoveTowards(currentValue, targetValue, increaseSpeed * Time.deltaTime);
+            else
+                currentValue = Mathf.MoveTowards(currentValue, targetValue, decreaseSpeed * Time.deltaTime);
+            float newWidth = currentValue * startSize;
+            tr.SetSizeWithCurrentAnchors(movingAxis, newWidth);
+        }
+
+        [Button]
+        public void SetTargetValue(float value)
+        {
+            targetValue = value;
+        }
     }
 }

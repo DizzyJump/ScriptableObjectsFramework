@@ -1,8 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-[CreateAssetMenu(menuName = "Values/Bool")]
-public class BoolValue : BaseValue<bool> {
+namespace Demos.SOArchApproach.CodeBase.ScriptableObjectsFramework.Values
+{
+    [CreateAssetMenu(menuName = "Values/Bool")]
+    public class BoolValue : BaseValue<bool> {
 
+    }
 }
